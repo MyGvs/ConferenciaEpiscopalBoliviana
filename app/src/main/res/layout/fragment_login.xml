@@ -131,7 +131,7 @@
                         android:textColor="@color/textPrimary"
                         android:layout_marginTop="4dp"
                         android:text="hay errores con su conexión"
-                        android:visibility="visible"
+                        android:visibility="gone"
                         android:layout_below="@+id/passwordInput"/>
                     <RelativeLayout
                         android:layout_width="match_parent"
