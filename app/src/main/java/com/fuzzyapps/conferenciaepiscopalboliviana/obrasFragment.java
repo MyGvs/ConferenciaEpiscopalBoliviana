@@ -10,9 +10,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import java.util.ArrayList;
+
 public class obrasFragment extends Fragment {
     public View view;
     private Spinner filtro;
+    private ArrayList<String> Obras = new ArrayList<>();
     public obrasFragment() {
         // Required empty public constructor
     }

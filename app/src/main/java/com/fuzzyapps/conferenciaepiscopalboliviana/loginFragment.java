@@ -29,6 +29,7 @@ public class loginFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
         return view;
     }
 

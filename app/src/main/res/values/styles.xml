@@ -11,7 +11,7 @@
     </style>
 
     <style name="MaterialButton" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorControlHighlight">@color/colorPrimary</item>
+        <item name="colorControlHighlight">@color/textSecondary</item>
         <item name="colorButtonNormal">@color/colorAccent</item>
     </style>
 
