@@ -3,33 +3,42 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:id="@+id/nav_registro_obras"
+            android:icon="@mipmap/ic_build_black_24dp"
+            android:title="Obras"
+            android:checked="true"/>
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:id="@+id/nav_registro_tipo_obra"
+            android:icon="@mipmap/ic_merge_type_black_24dp"
+            android:title="Tipo de Obra" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:id="@+id/nav_registro_departamento"
+            android:icon="@mipmap/ic_location_city_black_24dp"
+            android:title="Departamento" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/nav_reportes_estadistico"
+            android:icon="@mipmap/ic_trending_up_black_24dp"
+            android:title="Estadísticas" />
+        <item
+            android:id="@+id/nav_perfil"
+            android:icon="@mipmap/ic_account_circle_black_24dp"
+            android:title="Perfíl" />
+        <item
+            android:id="@+id/nav_acercade"
+            android:icon="@mipmap/ic_code_black_24dp"
+            android:title="Acerca de" />
+        <item
+            android:id="@+id/nav_salir"
+            android:icon="@mipmap/ic_exit_to_app_black_24dp"
+            android:title="Salir" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Servicio en la Nube">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/nav_sync"
+                android:icon="@mipmap/ic_sync_black_24dp"
+                android:title="Sincronizar" />
         </menu>
     </item>
 

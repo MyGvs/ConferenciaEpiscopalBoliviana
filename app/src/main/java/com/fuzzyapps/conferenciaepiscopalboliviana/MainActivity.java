@@ -1,5 +1,7 @@
 package com.fuzzyapps.conferenciaepiscopalboliviana;
 
+import android.app.Activity;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
@@ -87,9 +89,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     return fragmentTwo;
                 case 2:
-                    if(fragmentThree == null){
-                        fragmentThree = new sugerenciasFragment();
-                    }
+                    fragmentThree = new sugerenciasFragment();
                     return fragmentThree;
                 case 3:
                     if(fragmentFour == null){
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                 case 1:
                     return "CEB";
                 case 2:
-                    return "SUGERIR";
+                    return "MAPA";
                 case 3:
                     return "CUENTA";
             }
