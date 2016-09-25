@@ -130,6 +130,10 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
             fragmentManager.beginTransaction()
                     .replace(R.id.contentFrame, new nav_obrasFragment())
                     .commit();
+        } else if (id == R.id.nav_calendario) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.contentFrame, new nav_calendarioFragment())
+                    .commit();
         } else if (id == R.id.nav_registro_tipo_obra) {
             fragmentManager.beginTransaction()
                     .replace(R.id.contentFrame, new nav_tipoObraFragment())
