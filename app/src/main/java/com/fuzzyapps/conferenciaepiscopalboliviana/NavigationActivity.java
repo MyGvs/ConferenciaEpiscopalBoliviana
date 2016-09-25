@@ -2,6 +2,7 @@ package com.fuzzyapps.conferenciaepiscopalboliviana;
 
 import android.app.FragmentManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -49,7 +50,7 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
                 status = !status;
             }
         });
-
+        /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +58,7 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -155,7 +156,12 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
                     .replace(R.id.contentFrame, new nav_acercaDeFragment())
                     .commit();
         } else if (id == R.id.nav_salir) {
-            Toast.makeText(getApplicationContext(),"Salir", Toast.LENGTH_SHORT).show();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    finish();
+                }
+            }, 500);
         } else if (id == R.id.nav_sync) {
             Toast.makeText(getApplicationContext(),"Sincronizando...", Toast.LENGTH_SHORT).show();
         }

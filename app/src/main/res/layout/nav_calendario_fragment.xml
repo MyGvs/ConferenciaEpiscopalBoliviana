@@ -5,11 +5,12 @@
     tools:context="com.fuzzyapps.conferenciaepiscopalboliviana.nav_calendarioFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <CalendarView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="calendario" />
+        android:layout_centerHorizontal="true"
+        android:id="@+id/calendarView" />
 
 </RelativeLayout>
