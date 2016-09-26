@@ -62,9 +62,8 @@ public class nav_departamentoFragment extends Fragment {
     private View view;
     private ListView listView;
     ArrayList<String> departamentos = new ArrayList<>();
-
-
     LayoutInflater layoutInflater;
+
     public nav_departamentoFragment() {
         // Required empty public constructor
     }
@@ -98,7 +97,7 @@ public class nav_departamentoFragment extends Fragment {
                 final String[] splt = item.split("\\.");
                 //delete
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setTitle("Desea eliminar el departamento, "+splt[1]+"?");
+                builder.setTitle("Desea eliminar el Departamento, "+splt[1]+"?");
                 builder.setPositiveButton("Eliminar", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         new updateDepartamento(splt[0],"delete").execute();
