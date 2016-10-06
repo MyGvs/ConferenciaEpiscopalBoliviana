@@ -147,8 +147,8 @@ public class nav_obrasFragment extends Fragment {
                                 String horaini = c.getString("horario_inicio");
                                 String horafin = c.getString("horario_fin");
                                 String poblacionneta = c.getString("poblacion_neta");
-                                String posx = c.getString("pos_x");
-                                String posy = c.getString("pos_y");
+                                String posx = c.getString("longitud");
+                                String posy = c.getString("latitud");
                                 String fechaentrega = c.getString("fecha_entrega");
                                 String imagenurl = c.getString("imagen_url");
 

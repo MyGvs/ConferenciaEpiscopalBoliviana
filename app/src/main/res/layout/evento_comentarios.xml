@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    tools:context="com.fuzzyapps.conferenciaepiscopalboliviana.evento_comentarios"
+    android:focusableInTouchMode="true"
+    android:background="@drawable/repeat_background">
+    <android.support.v7.widget.RecyclerView
+        android:layout_above="@+id/cardview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="@dimen/message_box_margin"
+        android:layout_marginLeft="@dimen/message_box_margin"
+        android:layout_marginTop="@dimen/message_box_margin">
+
+    </android.support.v7.widget.RecyclerView>
+    <android.support.v7.widget.CardView
+        xmlns:card="http://schemas.android.com/apk/res-auto"
+        card:cardCornerRadius="4dp"
+        android:id="@+id/cardview"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/margin"
+        android:layout_marginLeft="@dimen/margin"
+        android:layout_marginRight="@dimen/margin">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/message_box_margin"
+            android:layout_marginLeft="@dimen/message_box_margin"
+            android:layout_marginBottom="@dimen/message_box_margin">
+            <TextView
+                android:id="@+id/messageTextCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="255"
+                android:layout_above="@+id/messageInput"
+                android:layout_alignEnd="@+id/messageInput"/>
+            <!--  Message Label -->
+            <EditText
+                android:id="@+id/messageInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@+id/messageSendButton"
+                android:inputType="text"
+                android:hint="Ingresa tu mensaje aquí..."
+                android:layout_centerVertical="true"/>
+            <Button
+                android:id="@+id/messageSendButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="88dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/textFlatButton"
+                style="?android:attr/borderlessButtonStyle"
+                android:text="Enviar"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

@@ -6,12 +6,14 @@
     <color name="colorAccent">#FFC107</color>
     <color name="colorLight">#C5CAE9</color>
     <color name="textPrimary">#212121</color>
+    <color name="textFlatButton">#2196F3</color>
     <color name="textSecondary">#757575</color>
     <color name="icons">#FFFFFF</color>
     <color name="divider">#BDBDBD</color>
     <color name="textButtons">#FFFFFF</color>
 
     <color name="backgroundcardLogin">#D9FFFFFF</color>
-    <color name="opacityBackground">#73FFFFFF</color>
+    <color name="darkOpacityBackground">#33000000</color>
+    <color name="opacityBackground">#CCFFFFFF</color>
 
 </resources>

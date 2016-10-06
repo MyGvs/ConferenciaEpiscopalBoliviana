@@ -5,5 +5,33 @@ package com.fuzzyapps.conferenciaepiscopalboliviana;
  */
 
 public class Globals {
-    public static String ip="192.168.1.6:8080";
+    //dirección de la web
+    public static String ip = "http://192.168.1.6:8080";
+    public static String bodyURL = "/software2_obras_iglesia";
+    public static String bodyURLImages = "/templates";
+    public static String completeImageURL = ip+bodyURL+bodyURLImages;
+    public static String completeApiURL = ip+bodyURL+"/restfulApi/public/api/v1";
+    public static boolean status;
 }
+/*
+//BASIC API CONSTRUCTOR
+public class obraAPI extends AsyncTask<String, String, String> {
+        public String id;
+
+        public obraAPI(String id) {
+            //obtener perfi de encargado
+            this.id = id;
+        }
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+        @Override
+        protected String doInBackground(String... params) {
+            return null;
+        }
+        @Override
+        protected void onPostExecute(String result) {
+        }
+    }
+ */

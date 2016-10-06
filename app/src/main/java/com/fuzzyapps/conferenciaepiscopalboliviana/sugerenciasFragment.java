@@ -1,10 +1,12 @@
 package com.fuzzyapps.conferenciaepiscopalboliviana;
 
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +24,7 @@ public class sugerenciasFragment extends Fragment implements OnMapReadyCallback 
 
     private GoogleMap mMap;
     public View view;
+    LayoutInflater layoutInflater;
 
     public sugerenciasFragment() {
         // Required empty public constructor
@@ -41,11 +44,12 @@ public class sugerenciasFragment extends Fragment implements OnMapReadyCallback 
             /* map is already there, just return view as it is */
             //Toast.makeText(getActivity(),""+e.getMessage(),Toast.LENGTH_SHORT).show();
         }
+        layoutInflater = getActivity().getLayoutInflater();
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(),"click",Toast.LENGTH_SHORT).show();
+                displayAlertDialog();
             }
         });
         SupportMapFragment mapFragment = (SupportMapFragment)  this.getChildFragmentManager().findFragmentById(R.id.map);
@@ -67,8 +71,27 @@ public class sugerenciasFragment extends Fragment implements OnMapReadyCallback 
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng laPaz = new LatLng(-16.499, -68.118);
+        mMap.addMarker(new MarkerOptions().position(laPaz).snippet("Reunión 15:00 - 17:00").title("Hay un Evento!"));
+        //mMap.moveCamera(CameraUpdateFactory.newLatLng(laPaz));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(laPaz.latitude, laPaz.longitude), 12.0f));
+    }
+    private void displayAlertDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Nueva Sugerencia de Obra");
+        View view= layoutInflater.inflate(R.layout.menu_sugerencia, null);
+        builder.setView(view);
+        builder.setPositiveButton("Agregar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                Toast.makeText(getActivity(),"Nueva Sugerencia.",Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // User cancelled the dialog
+                dialog.cancel();
+            }
+        });
+        builder.show();
     }
 }
