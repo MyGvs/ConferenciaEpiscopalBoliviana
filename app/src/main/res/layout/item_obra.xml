@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp"
-    android:layout_marginTop="8dp"
+    android:layout_marginTop="@dimen/half_margin"
+    android:layout_marginBottom="@dimen/half_margin"
     android:orientation="horizontal"
     android:gravity="center">
     <android.support.v7.widget.CardView

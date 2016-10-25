@@ -8,7 +8,8 @@
     android:focusableInTouchMode="true"
     android:background="@drawable/repeat_background">
     <android.support.v7.widget.RecyclerView
-        android:layout_above="@+id/cardview"
+        android:id="@+id/my_recycler_view"
+        android:layout_above="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginRight="@dimen/message_box_margin"
@@ -19,7 +20,7 @@
     <android.support.v7.widget.CardView
         xmlns:card="http://schemas.android.com/apk/res-auto"
         card:cardCornerRadius="4dp"
-        android:id="@+id/cardview"
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="90dp"
         android:layout_alignParentBottom="true"

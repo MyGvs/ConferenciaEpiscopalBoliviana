@@ -11,6 +11,7 @@
     <color name="icons">#FFFFFF</color>
     <color name="divider">#BDBDBD</color>
     <color name="textButtons">#FFFFFF</color>
+    <color name="materialBackground">#ECECEC</color>
 
     <color name="backgroundcardLogin">#D9FFFFFF</color>
     <color name="darkOpacityBackground">#33000000</color>

@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class detalleObra extends AppCompatActivity {
     public static String _idObra;
-    public static String userName;
+    public static String _idUsuario;
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -35,8 +35,6 @@ public class detalleObra extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        userName = "MyGvs";
-        getSupportActionBar().setTitle("Bienvenid@, "+ userName);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -80,15 +78,15 @@ public class detalleObra extends AppCompatActivity {
                         fragmentTwo = new obra_nav_eventosFragment();
                     }
                     return fragmentTwo;
-                case 2:
+                /*case 2:
                     fragmentThree = new obra_nav_recaudacionFragment();
-                    return fragmentThree;
-                case 3:
+                    return fragmentThree;*/
+                case 2:
                     if(fragmentFour == null){
                         fragmentFour = new obra_nav_mapaFragment();
                     }
                     return fragmentFour;
-                case 4:
+                case 3:
                     if(fragmentFive == null){
                         fragmentFive = new obra_nav_encargadoFragment();
                     }
@@ -101,7 +99,7 @@ public class detalleObra extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 5;
+            return 4;
         }
 
         @Override
@@ -111,14 +109,24 @@ public class detalleObra extends AppCompatActivity {
                     return "PERFIL";
                 case 1:
                     return "EVENTOS";
+                /*case 2:
+                    return "COLECTA";*/
                 case 2:
-                    return "COLECTA";
-                case 3:
                     return "MAPA";
-                case 4:
+                case 3:
                     return "GESTOR";
             }
             return null;
         }
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(Globals.status){
+            setAllViews(Globals.usuario);
+        }
+    }
+    private void setAllViews(String name){
+        getSupportActionBar().setTitle("Bienvenid@, "+name);
     }
 }

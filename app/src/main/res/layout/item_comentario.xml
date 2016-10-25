@@ -3,6 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center"
+    android:layout_marginTop="@dimen/half_half_half_margin"
+    android:layout_marginBottom="@dimen/half_half_half_margin"
+    android:layout_marginLeft="@dimen/margin"
+    android:layout_marginRight="@dimen/margin"
     android:orientation="vertical">
     <!-- Lugar fehca,hora,  *referencias* descripcion, like comentar img -->
     <android.support.v7.widget.CardView
@@ -13,42 +17,50 @@
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/eventoImagen"
+                android:id="@+id/comentarioImagen"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginRight="5dp"/>
+                android:layout_marginRight="5dp"
+                android:layout_gravity="center"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <TextView
+                    android:id="@+id/comentarioNombre"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Geovani Mendoza"
                     android:textColor="@color/textPrimary"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
                 <TextView
+                    android:id="@+id/comentarioMensaje"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Un Lol :v"
                     android:layout_marginRight="8dp"
                     android:textAppearance="?android:attr/textAppearanceMedium"/>
                 <TextView
+                    android:id="@+id/comentarioTiempo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="hace 3h"
                     android:layout_marginRight="8dp"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:layout_gravity="end"/>
+                <Button
+                    android:id="@+id/comentarioEliminarButton"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/textFlatButton"
+                    android:text="Eliminar"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_gravity="end"
+                    android:visibility="gone"/>
             </LinearLayout>
             <TextView
-                android:id="@+id/mensajeID"
+                android:id="@+id/comentarioID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="gone"/>

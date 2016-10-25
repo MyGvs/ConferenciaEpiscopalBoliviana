@@ -34,7 +34,7 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
         fragmentManager = getFragmentManager();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Bienvenido, Geovani");
+        getSupportActionBar().setTitle("Bienvenido, "+Globals.usuario);
         networkStatus = (ImageButton) findViewById(R.id.networkStatus);
         status = true;
         networkStatus.setOnClickListener(new View.OnClickListener() {

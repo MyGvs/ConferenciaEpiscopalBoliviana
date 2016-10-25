@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Debug;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -262,6 +264,7 @@ public class obrasFragment extends Fragment {
             holder.obraTipo.setText(item.obraTipo);
             holder.obraJurisdiccion.setText(item.obraJurisdiccion);
             picasso.cancelRequest(holder.obraImagen);
+            Log.e("IMAGE: ", ""+item.obraImagenUrl);
             picasso.load(item.obraImagenUrl)
                     .noPlaceholder()
                     .resizeDimen(R.dimen.simple_card_image_width, R.dimen.simple_card_image_height)
@@ -285,5 +288,15 @@ public class obrasFragment extends Fragment {
         public int getItemCount() {
             return obrasDataSet.size();
         }
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(Globals.status){
+            setAllViews(Globals.usuario);
+        }
+    }
+    private void setAllViews(String name){
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Bienvenid@, "+name);
     }
 }

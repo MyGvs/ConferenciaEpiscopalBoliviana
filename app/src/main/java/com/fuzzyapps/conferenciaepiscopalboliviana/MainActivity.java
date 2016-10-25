@@ -1,5 +1,6 @@
 package com.fuzzyapps.conferenciaepiscopalboliviana;
 
+import android.content.Context;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -9,9 +10,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.widget.Toast;
-
-import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,8 +30,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        AppEventsLogger.activateApp(getApplication());
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -47,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
     }
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to

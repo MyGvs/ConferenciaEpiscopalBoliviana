@@ -1,12 +1,15 @@
 package com.fuzzyapps.conferenciaepiscopalboliviana;
 
 
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -93,5 +96,20 @@ public class sugerenciasFragment extends Fragment implements OnMapReadyCallback 
             }
         });
         builder.show();
+    }
+    @Override
+    public void onResume(){
+        super.onResume();
+        try{
+            SharedPreferences preferences = this.getActivity().getSharedPreferences("pref", Context.MODE_PRIVATE);
+        }catch (Exception e){
+            Toast.makeText(getContext(), ""+e, Toast.LENGTH_SHORT).show();
+        }
+        if(Globals.status){
+            setAllViews(Globals.usuario);
+        }
+    }
+    private void setAllViews(String name){
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Bienvenid@, "+name);
     }
 }

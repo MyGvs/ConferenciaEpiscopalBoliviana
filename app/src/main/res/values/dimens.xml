@@ -2,6 +2,9 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="margin">16dp</dimen>
+    <dimen name="half_margin">8dp</dimen>
+    <dimen name="half_half_margin">4dp</dimen>
+    <dimen name="half_half_half_margin">2dp</dimen>
     <dimen name="message_box_margin">3dp</dimen>
     <dimen name="buttonMargin">50dp</dimen>
     <dimen name="landButtonMargin">90dp</dimen>
@@ -21,4 +24,10 @@
 
     <dimen name="encargado_profile_width">300dp</dimen>
     <dimen name="encargado_profile_height">300dp</dimen>
+
+    <dimen name="evento_imagen_width">150dp</dimen>
+    <dimen name="evento_imagen_height">200dp</dimen>
+
+    <dimen name="imagen_comentario_width">60dp</dimen>
+    <dimen name="imagen_comentario_height">60dp</dimen>
 </resources>

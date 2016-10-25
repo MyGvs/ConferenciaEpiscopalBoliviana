@@ -64,7 +64,7 @@
             android:label="@string/main_title"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".evento_comentarios"></activity>
+        <activity android:name=".evento_comentarios" />
     </application>
 
 </manifest>

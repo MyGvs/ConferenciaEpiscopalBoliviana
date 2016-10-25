@@ -4,6 +4,7 @@ package com.fuzzyapps.conferenciaepiscopalboliviana;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.InflateException;
 import android.view.LayoutInflater;
@@ -105,8 +106,8 @@ public class obra_nav_mapaFragment extends Fragment implements OnMapReadyCallbac
                     for (int i = 0; i < json.length(); i++) {
                         JSONObject c = json.getJSONObject(i);
                         clase_Evento evento = new clase_Evento(
-                                Double.parseDouble(c.getString("pos_x")),
-                                Double.parseDouble(c.getString("pos_y")),
+                                Double.parseDouble(c.getString("evento_latitud")),
+                                Double.parseDouble(c.getString("evento_longitud")),
                                 c.getString("nombre"),
                                 c.getString("fecha_evento"),
                                 c.getString("lugar"),
@@ -150,7 +151,7 @@ public class obra_nav_mapaFragment extends Fragment implements OnMapReadyCallbac
         for (int i=0; i<ArrayListEventos.size(); i++){
             if(i==0){
                 //enfocar al primer evento
-                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(ArrayListEventos.get(i).latitud, ArrayListEventos.get(i).longtud), 17.0f));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(ArrayListEventos.get(i).latitud, ArrayListEventos.get(i).longtud), 17.0f));
             }
             LatLng position = new LatLng(ArrayListEventos.get(i).latitud, ArrayListEventos.get(i).longtud);
             mMap.addMarker(new MarkerOptions().position(position)
@@ -158,5 +159,15 @@ public class obra_nav_mapaFragment extends Fragment implements OnMapReadyCallbac
                     .snippet(ArrayListEventos.get(i).lugar+", Hora: "+ArrayListEventos.get(i).hora_inicio+" - "+ArrayListEventos.get(i).hora_fin)
                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
         }
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(Globals.status){
+            setAllViews(Globals.usuario);
+        }
+    }
+    private void setAllViews(String name){
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Bienvenid@, "+name);
     }
 }

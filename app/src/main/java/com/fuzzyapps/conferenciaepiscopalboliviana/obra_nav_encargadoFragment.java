@@ -4,6 +4,7 @@ package com.fuzzyapps.conferenciaepiscopalboliviana;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -112,5 +113,15 @@ public class obra_nav_encargadoFragment extends Fragment {
                 .resizeDimen(R.dimen.encargado_profile_width, R.dimen.encargado_profile_height)
                 .centerCrop()
                 .into(profileImage);
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(Globals.status){
+            setAllViews(Globals.usuario);
+        }
+    }
+    private void setAllViews(String name){
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Bienvenid@, "+name);
     }
 }
