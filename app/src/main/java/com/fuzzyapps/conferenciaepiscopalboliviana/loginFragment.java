@@ -60,7 +60,7 @@ public class loginFragment extends Fragment {
     public static String new_user = Globals.completeApiURL+"/nuevo_usuario/";
     public static String login_user = Globals.completeApiURL+"/loguear_usuario/";
     private View view;
-    private Button loginButton, registerButton;
+    private Button loginButton, registerButton, panel;
     LayoutInflater layoutInflater;
     private TextView errorInputUsuario, errorInputPassword, errorInputPasswordRepeat, errorInputName, errorInputFirstName, errorInputLastName, errorInputEmail, errorInputPhone, errorText;//, uploadStatus;
     private EditText inputUsuario, inputPassword, inputPasswordRepeat, inputName, inputFirstName, inputLastName, inputEmail, inputPhone;
@@ -82,6 +82,7 @@ public class loginFragment extends Fragment {
         errorText = (TextView) view.findViewById(R.id.errorText);
         loginButton = (Button) view.findViewById(R.id.loginButton);
         registerButton = (Button) view.findViewById(R.id.registerButton);
+        panel = (Button) view.findViewById(R.id.panel);
         input_email = (EditText) view.findViewById(R.id.input_email);
         input_password = (EditText) view.findViewById(R.id.input_password);
         layoutInflater = getActivity().getLayoutInflater();
@@ -109,6 +110,13 @@ public class loginFragment extends Fragment {
             @Override
             public void onClick(View view){
                showRegisterPopUp();
+            }
+        });
+        panel.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(getActivity() , NavigationActivity.class);
+                startActivity(intent);
             }
         });
         return view;
@@ -293,10 +301,11 @@ public class loginFragment extends Fragment {
         errorText.setVisibility(View.GONE);
         errorText.setText("");
         setAllViews(usuario);
-        msg("Bienvenido@, "+nombres+" "+apellido_paterno+" "+apellido_materno);
+        msg(tipo_usuario+"Bienvenido@, "+nombres+" "+apellido_paterno+" "+apellido_materno);
         if(tipo_usuario.equals("2")){
             Intent intent = new Intent(getActivity() , NavigationActivity.class);
             startActivity(intent);
+            panel.setVisibility(View.VISIBLE);
         }
         /*((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Soy genial");
         Globals.status = true;
@@ -333,6 +342,11 @@ public class loginFragment extends Fragment {
         if(Globals.status){
             setAllViews(Globals.usuario);
         }
+        try{
+            if(Globals.tipo_usuario.equals("2")){
+                panel.setVisibility(View.VISIBLE);
+            }
+        }catch (Exception e){}
     }
     @Override
     public void onStop() {

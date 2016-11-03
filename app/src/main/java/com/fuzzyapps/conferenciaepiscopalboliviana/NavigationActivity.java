@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -68,6 +69,7 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
 
         final NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
         //set First Fragmetn
         fragmentManager.beginTransaction()
                 .replace(R.id.contentFrame, new nav_obrasFragment())
@@ -75,6 +77,11 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
         //Cambio de fragment cuando se hace click a la imagen
         View header = navigationView.getHeaderView(0);
         profileImageM = (CircleImageView) header.findViewById(R.id.profileImage2);
+
+        TextView name = (TextView) header.findViewById(R.id.name);
+        name.setText(Globals.nombres+" "+ Globals.apellido_paterno+" "+Globals.apellido_materno);
+        TextView email = (TextView) header.findViewById(R.id.email);
+        email.setText(Globals.usuario);
         //Listener del circle iamge
         profileImageM.setOnClickListener(new View.OnClickListener(){
             @Override

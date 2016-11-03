@@ -55,10 +55,10 @@ import javax.net.ssl.HttpsURLConnection;
  * A simple {@link Fragment} subclass.
  */
 public class nav_departamentoFragment extends Fragment {
-    public static String url = "http://"+Globals.ip+"/restfulApi/public/api/v1/departamentos/";
-    public static String new_departamento = "http://"+Globals.ip+"/restfulApi/public/api/v1/nuevo_departamento/";
-    public static String update_departamento = "http://"+Globals.ip+"/restfulApi/public/api/v1/actualizar_departamento/";
-    public static String delete_departamento = "http://"+Globals.ip+"/restfulApi/public/api/v1/borrar_departamento/";
+    public static String url = Globals.completeApiURL+"/departamentos/";
+    public static String new_departamento = Globals.completeApiURL+"/nuevo_departamento/";
+    public static String update_departamento = Globals.completeApiURL+"/actualizar_departamento/";
+    public static String delete_departamento = Globals.completeApiURL+"/borrar_departamento/";
     private View view;
     private ListView listView;
     ArrayList<String> departamentos = new ArrayList<>();

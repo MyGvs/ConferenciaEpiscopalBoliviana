@@ -41,10 +41,10 @@ import javax.net.ssl.HttpsURLConnection;
  * A simple {@link Fragment} subclass.
  */
 public class nav_tipoObraFragment extends Fragment {
-    public static String api_listar_tipo_obra = "http://"+Globals.ip+"/restfulApi/public/api/v1/tipo_de_obra/";
-    public static String api_nuevo_tipo_de_obra = "http://"+Globals.ip+"/restfulApi/public/api/v1/nuevo_tipo_de_obra/";
-    public static String api_actualizar_tipo_de_obra = "http://"+Globals.ip+"/restfulApi/public/api/v1/actualizar_tipo_de_obra/";
-    public static String api_borrar_tipo_de_obra = "http://"+Globals.ip+"/restfulApi/public/api/v1/borrar_tipo_de_obra/";
+    public static String api_listar_tipo_obra = Globals.completeApiURL+"/tipo_de_obra/";
+    public static String api_nuevo_tipo_de_obra = Globals.completeApiURL+"/nuevo_tipo_de_obra/";
+    public static String api_actualizar_tipo_de_obra = Globals.completeApiURL+"/actualizar_tipo_de_obra/";
+    public static String api_borrar_tipo_de_obra = Globals.completeApiURL+"/borrar_tipo_de_obra/";
     private View view;
     public ListView listView;
     ArrayList<String> ArrayListTipoObra = new ArrayList<>();

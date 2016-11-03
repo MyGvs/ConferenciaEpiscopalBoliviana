@@ -35,6 +35,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -101,8 +102,12 @@ public class evento_comentarios extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"No hay texto.",Toast.LENGTH_SHORT).show();
                 }else{
                     if(send){
+                        Calendar mcurrentTime = Calendar.getInstance();
+                        int day = mcurrentTime.get(Calendar.DAY_OF_MONTH);
+                        int month = mcurrentTime.get(Calendar.MONTH);
+                        int year = mcurrentTime.get(Calendar.YEAR);
                         //Toast.makeText(getApplicationContext(),""+messageInput.getText().toString(),Toast.LENGTH_SHORT).show();
-                        new comentariosAPI(_eventoID, "add", Globals.idUsuario,"2016-10-19","10:00", messageInput.getText().toString()).execute();
+                        new comentariosAPI(_eventoID, "add", Globals.idUsuario,year+"-"+(month+1)+"-"+day,"10:00", messageInput.getText().toString()).execute();
                         messageInput.setText("");
                     }else{
                         Toast.makeText(getApplicationContext(),"Mensaje muy largo.",Toast.LENGTH_SHORT).show();

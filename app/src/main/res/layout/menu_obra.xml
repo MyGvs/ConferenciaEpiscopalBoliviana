@@ -8,6 +8,18 @@
         android:layout_height="wrap_content"
         android:focusableInTouchMode="true"
         android:gravity="center">
+        <Spinner
+            android:id="@+id/spinnerDep"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Spinner
+            android:id="@+id/spinnerJur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Spinner
+            android:id="@+id/spinnerTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,53 +33,49 @@
                 android:inputType="text"
                 android:hint="Nombre" />
         </android.support.design.widget.TextInputLayout>
-        <!-- Desplegar Mapa -->
-        <LinearLayout
+        <TextView
+            android:id="@+id/errorIinputObraNombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="4dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginLeft="@dimen/marginPortrait"
-            android:layout_marginRight="@dimen/marginPortrait"
-            android:gravity="center">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Imagen:"
-                android:layout_marginRight="4dp"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
-            <ImageButton
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="@mipmap/ic_photo_library_black_24dp"/>
-        </LinearLayout>
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="left"
+            android:visibility="gone"/>
+        <Button
+            android:id="@+id/horaInicio"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginLeft="@dimen/marginPortrait"
-            android:layout_marginRight="@dimen/marginPortrait">
-            <EditText android:id="@+id/inputHoraInicio"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="datetime"
-                android:hint="Hora de Atención (Inicio)" />
-        </android.support.design.widget.TextInputLayout>
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
+            android:minWidth="88dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="Hora de Atención (Inicio)"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/textButtons"
+            android:theme="@style/MaterialButton" />
+        <TextView
+            android:id="@+id/errorHoraInicio"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginLeft="@dimen/marginPortrait"
-            android:layout_marginRight="@dimen/marginPortrait">
-            <EditText android:id="@+id/inputHoraFin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:hint="Hora de Atención (Fin)" />
-        </android.support.design.widget.TextInputLayout>
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="left"
+            android:visibility="gone"/>
+        <Button
+            android:id="@+id/horaFin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="88dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="Hora de Atención (Fin)"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/textButtons"
+            android:theme="@style/MaterialButton" />
+        <TextView
+            android:id="@+id/errorHoraFin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="left"
+            android:visibility="gone"/>
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -81,6 +89,13 @@
                 android:inputType="number"
                 android:hint="Poblacion Neta" />
         </android.support.design.widget.TextInputLayout>
+        <TextView
+            android:id="@+id/errorInputPoblacionNeta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="left"
+            android:visibility="gone"/>
         <!-- Desplegar Mapa -->
         <LinearLayout
             android:layout_width="wrap_content"
@@ -90,7 +105,8 @@
             android:layout_marginTop="4dp"
             android:layout_marginLeft="@dimen/marginPortrait"
             android:layout_marginRight="@dimen/marginPortrait"
-            android:gravity="center">
+            android:gravity="center"
+            android:visibility="gone">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -98,10 +114,52 @@
                 android:text="Posición:"
                 android:textAppearance="?android:attr/textAppearanceMedium"/>
             <ImageButton
+                android:id="@+id/position"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="@mipmap/ic_add_location_black_24dp"/>
+            <Button
+                android:id="@+id/posicionButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minWidth="88dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="Obtener Posición"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/textButtons"
+                android:theme="@style/MaterialButton" />
         </LinearLayout>
+        <TextView
+            android:id="@+id/textviewLatLong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/errorTextviewLatLong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="left"
+            android:visibility="gone"/>
+        <Button
+            android:id="@+id/inputFechaEntrega"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="88dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="Fecha de Entrega"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/textButtons"
+            android:theme="@style/MaterialButton" />
+        <TextView
+            android:id="@+id/errorInputFechaEntrega"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="left"
+            android:visibility="gone"/>
+
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -109,11 +167,222 @@
             android:layout_marginTop="4dp"
             android:layout_marginLeft="@dimen/marginPortrait"
             android:layout_marginRight="@dimen/marginPortrait">
-            <EditText android:id="@+id/inputFechaEntrega"
+            <EditText android:id="@+id/telefono1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:hint="Fecha de Entrega" />
+                android:inputType="phone"
+                android:hint="Teléfono 1" />
         </android.support.design.widget.TextInputLayout>
+        <TextView
+            android:id="@+id/errorTelefono1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="left"
+            android:visibility="gone"/>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="@dimen/marginPortrait"
+            android:layout_marginRight="@dimen/marginPortrait">
+            <EditText android:id="@+id/telefono2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:hint="Teléfono 2 (opcional)" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="@dimen/marginPortrait"
+            android:layout_marginRight="@dimen/marginPortrait">
+            <EditText android:id="@+id/fax"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Fax (opcional)" />
+        </android.support.design.widget.TextInputLayout>
+        <TextView
+            android:id="@+id/errorFax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="left"
+            android:visibility="gone"/>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="@dimen/marginPortrait"
+            android:layout_marginRight="@dimen/marginPortrait">
+            <EditText android:id="@+id/municipio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Municipio" />
+        </android.support.design.widget.TextInputLayout>
+        <TextView
+            android:id="@+id/errorMunicipio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="left"
+            android:visibility="gone"/>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="@dimen/marginPortrait"
+            android:layout_marginRight="@dimen/marginPortrait">
+            <EditText android:id="@+id/zonaUrbana"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Comunidad / Zona Urbana" />
+        </android.support.design.widget.TextInputLayout>
+        <TextView
+            android:id="@+id/errorZonaUrbana"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="left"
+            android:visibility="gone"/>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="@dimen/marginPortrait"
+            android:layout_marginRight="@dimen/marginPortrait">
+            <EditText android:id="@+id/paginaWeb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Página Web (opcional)" />
+        </android.support.design.widget.TextInputLayout>
+        <TextView
+            android:id="@+id/errorPaginaWeb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="left"
+            android:visibility="gone"/>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="@dimen/marginPortrait"
+            android:layout_marginRight="@dimen/marginPortrait">
+            <EditText android:id="@+id/provincia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Provincia" />
+        </android.support.design.widget.TextInputLayout>
+        <TextView
+            android:id="@+id/errorProvincia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="left"
+            android:visibility="gone"/>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="@dimen/marginPortrait"
+            android:layout_marginRight="@dimen/marginPortrait">
+            <EditText android:id="@+id/casilla"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Casilla" />
+        </android.support.design.widget.TextInputLayout>
+        <TextView
+            android:id="@+id/errorCasilla"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="left"
+            android:visibility="gone"/>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="@dimen/marginPortrait"
+            android:layout_marginRight="@dimen/marginPortrait">
+            <EditText android:id="@+id/direccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Dirección" />
+        </android.support.design.widget.TextInputLayout>
+        <TextView
+            android:id="@+id/errorDireccion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="left"
+            android:visibility="gone"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Días de Atención"/>
+        <CheckBox
+            android:id="@+id/lunes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lunes"/>
+        <CheckBox
+            android:id="@+id/martes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Martes"/>
+        <CheckBox
+            android:id="@+id/miercoles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Miércoles"/>
+        <CheckBox
+            android:id="@+id/jueves"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jueves"/>
+        <CheckBox
+            android:id="@+id/viernes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Viernes"/>
+        <CheckBox
+            android:id="@+id/sabado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sábado"/>
+        <CheckBox
+            android:id="@+id/domingo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Domingo"/>
+        <Button
+            android:id="@+id/addObra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minWidth="88dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="Registrar Obra"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/textButtons"
+            android:theme="@style/MaterialButton" />
     </LinearLayout>
 </ScrollView>
